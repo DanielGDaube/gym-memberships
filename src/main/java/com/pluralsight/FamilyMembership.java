@@ -17,4 +17,14 @@ public class FamilyMembership extends Membership{
         this.extraMembers = extraMembers;
         return this;
     }
+
+    @Override
+    public BigDecimal getMonthlyPrice(){
+        BigDecimal monthlyPrice = getBaseRate();
+        monthlyPrice = monthlyPrice.add(BigDecimal.valueOf(12.50 * extraMembers));
+        if (extraMembers >= 3){
+            monthlyPrice = monthlyPrice.multiply(BigDecimal.valueOf(.9));
+        }
+        return  monthlyPrice;
+    }
 }
