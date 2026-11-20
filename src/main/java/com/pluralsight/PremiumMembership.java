@@ -1,6 +1,7 @@
 package com.pluralsight;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class PremiumMembership extends Membership{
 
@@ -32,7 +33,7 @@ public class PremiumMembership extends Membership{
     public BigDecimal getSignUpFee(){
         BigDecimal fee = new BigDecimal("49.00");
         if (getMonths() >= 12){
-            fee = BigDecimal.ZERO;
+            fee = BigDecimal.ZERO.setScale(2, RoundingMode.HALF_UP);
         }
         return fee;
     }
