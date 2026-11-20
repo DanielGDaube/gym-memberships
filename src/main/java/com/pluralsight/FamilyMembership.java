@@ -1,6 +1,7 @@
 package com.pluralsight;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class FamilyMembership extends Membership{
 
@@ -25,6 +26,7 @@ public class FamilyMembership extends Membership{
         if (extraMembers >= 3){
             monthlyPrice = monthlyPrice.multiply(BigDecimal.valueOf(.9));
         }
+        monthlyPrice = monthlyPrice.setScale(2, RoundingMode.HALF_UP);
         return  monthlyPrice;
     }
 }
