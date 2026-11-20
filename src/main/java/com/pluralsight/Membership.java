@@ -1,6 +1,7 @@
 package com.pluralsight;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class Membership {
     private String memberName;
@@ -36,6 +37,13 @@ public class Membership {
 
     public BigDecimal getSignUpFee(){
         return new BigDecimal("49.00");
+    }
+
+    public BigDecimal getContractTotal(){
+        BigDecimal total = getSignUpFee();
+        total = total.add(getMonthlyPrice().multiply(BigDecimal.valueOf(months)));
+        total = total.setScale(2, RoundingMode.HALF_UP);
+        return total;
     }
 
     public BigDecimal getMonthlyPrice(){
