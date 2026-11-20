@@ -19,7 +19,7 @@ public class BasicMembership extends Membership{
 
     @Override
     public BigDecimal getMonthlyPrice(){
-        BigDecimal monthlyPrice = super.getMonthlyPrice();
+        BigDecimal monthlyPrice = super.getBaseRate();
         if (offPeakOnly){
             monthlyPrice = monthlyPrice.subtract(new BigDecimal("5.00"));
         }
