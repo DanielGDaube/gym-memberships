@@ -34,6 +34,10 @@ public class Membership {
         return this;
     }
 
+    public BigDecimal getSignUpFee(){
+        return new BigDecimal("49.00");
+    }
+
     public BigDecimal getMonthlyPrice(){
         return baseRate;
     }
