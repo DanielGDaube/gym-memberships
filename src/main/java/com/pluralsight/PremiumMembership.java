@@ -17,4 +17,9 @@ public class PremiumMembership extends Membership{
         this.guestPasses = guestPasses;
         return this;
     }
+
+    @Override
+    public BigDecimal getMonthlyPrice(){
+        return super.getMonthlyPrice().add(new BigDecimal("18.50"));
+    }
 }
