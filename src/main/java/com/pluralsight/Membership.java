@@ -12,4 +12,8 @@ public class Membership {
         this.months = months;
         this.baseRate = baseRate;
     }
+
+    public BigDecimal getMonthlyPrice(){
+        return baseRate;
+    }
 }
