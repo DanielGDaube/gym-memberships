@@ -54,6 +54,11 @@ public class Main {
                         " key cards");
             }
         }
+
+        System.out.println("--- Kinds ---");
+        for (Membership membership : memberships) {
+            System.out.println(membership.getMemberName() + ": " + membership.getClass().getSimpleName());
+        }
     }
 
     public static void printCosts(Membership membership){
