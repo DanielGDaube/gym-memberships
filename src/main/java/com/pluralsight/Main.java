@@ -1,6 +1,7 @@
 package com.pluralsight;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
@@ -16,26 +17,33 @@ public class Main {
         Membership graceLee = new FamilyMembership("Grace Lee", 12,baseRate,3);
         Membership emmaWilson = new FamilyMembership("Emma Wilson", 6,baseRate,1);
 
-        System.out.println(henryClark);
-        System.out.println(aliceJohnson);
-        System.out.println(bobSmith);
-        System.out.println(carolWhite);
-        System.out.println(frankMiller);
-        System.out.println(graceLee);
-        System.out.println(emmaWilson);
+        ArrayList<Membership> memberships = new ArrayList<>();
+        memberships.add(henryClark);
+        memberships.add(aliceJohnson);
+        memberships.add(bobSmith);
+        memberships.add(carolWhite);
+        memberships.add(frankMiller);
+        memberships.add(graceLee);
+        memberships.add(emmaWilson);
 
-        System.out.println("--- Guest passes ---");
+        BigDecimal monthlyIncome =BigDecimal.ZERO;
+        BigDecimal allContracts = BigDecimal.ZERO;
+        for (Membership membership : memberships) {
+            System.out.println(membership);
+            printCosts(membership);
+            monthlyIncome = monthlyIncome.add(membership.getMonthlyPrice());
+            allContracts = allContracts.add(membership.getContractTotal());
+        }
 
-        ((PremiumMembership) carolWhite).useGuestPass();
-        ((PremiumMembership) carolWhite).useGuestPass();
-        ((PremiumMembership) carolWhite).useGuestPass();
-        ((PremiumMembership) frankMiller).useGuestPass();
+        System.out.println("--- Totals ---");
+        System.out.println("Memberships: " + memberships.size());
+        System.out.println("Monthly income: $" + monthlyIncome);
+        System.out.println("All contracts: $" + allContracts);
+    }
 
-        System.out.println("--- Sign-up fee and contract total ---");
-
-        System.out.println(henryClark.getMemberName() + ": fee $" + henryClark.getSignUpFee() + ", total $" + henryClark.getContractTotal());
-        System.out.println(carolWhite.getMemberName() + ": fee $" + carolWhite.getSignUpFee() + ", total $" + carolWhite.getContractTotal());
-        System.out.println(frankMiller.getMemberName() + ": fee $" + frankMiller.getSignUpFee() + ", total $" + frankMiller.getContractTotal());
-        System.out.println(graceLee.getMemberName() + ": fee $" + graceLee.getSignUpFee() + ", total $" + graceLee.getContractTotal());
+    public static void printCosts(Membership membership){
+        System.out.println("    Monthly price: $" + membership.getMonthlyPrice() +
+                ", sign-up fee: $" + membership.getSignUpFee() +
+                ", contract total: $" + membership.getContractTotal());
     }
 }
