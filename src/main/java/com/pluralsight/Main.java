@@ -39,6 +39,21 @@ public class Main {
         System.out.println("Memberships: " + memberships.size());
         System.out.println("Monthly income: $" + monthlyIncome);
         System.out.println("All contracts: $" + allContracts);
+
+        System.out.println("--- Front Desk Notes ---");
+        for (Membership membership : memberships) {
+            if (membership instanceof BasicMembership && ((BasicMembership) membership).isOffPeakOnly()){
+                System.out.println(membership.getMemberName() + ": entry between 10:00 and 16:00 only");
+            }
+            if (membership instanceof PremiumMembership){
+                ((PremiumMembership) membership).useGuestPass();
+            }
+            if (membership instanceof FamilyMembership){
+                System.out.println(membership.getMemberName() + ": print " +
+                        (((FamilyMembership) membership).getExtraMembers() + 1) +
+                        " key cards");
+            }
+        }
     }
 
     public static void printCosts(Membership membership){
