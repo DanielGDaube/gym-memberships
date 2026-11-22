@@ -46,9 +46,7 @@ public abstract class Membership {
         return total;
     }
 
-    public BigDecimal getMonthlyPrice(){
-        return baseRate;
-    }
+    public abstract BigDecimal getMonthlyPrice();
 
     @Override
     public String toString() {

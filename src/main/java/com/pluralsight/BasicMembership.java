@@ -17,6 +17,7 @@ public class BasicMembership extends Membership{
         return this;
     }
 
+    //Class 'BasicMembership' must either be declared abstract or implement abstract method 'getMonthlyPrice()' in 'Membership'
     @Override
     public BigDecimal getMonthlyPrice(){
         BigDecimal monthlyPrice = super.getBaseRate();
