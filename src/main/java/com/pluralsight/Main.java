@@ -9,7 +9,6 @@ public class Main {
 
         System.out.println("=== Gym Memberships ===");
 
-        Membership henryClark = new Membership("Henry Clark",3,baseRate);
         Membership aliceJohnson = new BasicMembership("Alice Johnson",6,baseRate,true);
         Membership bobSmith = new BasicMembership("Bob Smith",2,new BigDecimal("27.50"),false);
         Membership carolWhite = new PremiumMembership("Carol White", 12,baseRate,2);
@@ -18,7 +17,6 @@ public class Main {
         Membership emmaWilson = new FamilyMembership("Emma Wilson", 6,baseRate,1);
 
         ArrayList<Membership> memberships = new ArrayList<>();
-        memberships.add(henryClark);
         memberships.add(aliceJohnson);
         memberships.add(bobSmith);
         memberships.add(carolWhite);
