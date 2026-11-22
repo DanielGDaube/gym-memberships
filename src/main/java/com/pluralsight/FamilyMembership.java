@@ -29,4 +29,9 @@ public class FamilyMembership extends Membership{
         monthlyPrice = monthlyPrice.setScale(2, RoundingMode.HALF_UP);
         return  monthlyPrice;
     }
+
+    @Override
+    public String toString() {
+        return "Family " + getMemberName() + " " + getMonths() + " months " + "extra members: " + extraMembers;
+    }
 }

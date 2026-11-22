@@ -49,4 +49,9 @@ public class Membership {
     public BigDecimal getMonthlyPrice(){
         return baseRate;
     }
+
+    @Override
+    public String toString() {
+        return "Membership " + memberName + " " + months + " months";
+    }
 }

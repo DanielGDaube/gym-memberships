@@ -42,4 +42,9 @@ public class PremiumMembership extends Membership{
     public BigDecimal getMonthlyPrice(){
         return super.getBaseRate().add(new BigDecimal("18.50"));
     }
+
+    @Override
+    public String toString() {
+        return "Premium " + getMemberName() + " " + getMonths() + " months " + "guest passes: " + guestPasses;
+    }
 }
