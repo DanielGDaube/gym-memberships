@@ -32,6 +32,6 @@ public class FamilyMembership extends Membership{
 
     @Override
     public String toString() {
-        return "Family " + getMemberName() + " " + getMonths() + " months " + "extra members: " + extraMembers;
+        return "Family | " + getMemberName() + " | " + getMonths() + " months | " + "extra members: " + extraMembers;
     }
 }

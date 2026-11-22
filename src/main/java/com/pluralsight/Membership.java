@@ -52,6 +52,6 @@ public class Membership {
 
     @Override
     public String toString() {
-        return "Membership " + memberName + " " + months + " months";
+        return "Membership | " + memberName + " | " + months + " months";
     }
 }
