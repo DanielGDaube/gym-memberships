@@ -1,5 +1,5 @@
 # Gym Memberships
-An application the manages, and calculates the cost of, different
+An application that manages, and calculates the cost of, different
 kinds of gym memberships.
 
 <!-- HOW TO USE THIS TEMPLATE
@@ -12,6 +12,7 @@ kinds of gym memberships.
      Example: A console app that keeps a store's inventory in a csv file and lets a clerk search it. -->
 
 ## Description of the Project
+A parent Membership class and three child classes that calculate the cost of different kinds of gym memberships. The three child classes have unique calculations for class specific information that is not shared with the other classes. Main prints all memberships and price calculations.
 
 <!-- Three to five sentences. What the application does, who uses it, what problem it solves.
      Write it for someone who has never seen the workbook: a recruiter, a classmate, you in six months. -->
@@ -33,18 +34,12 @@ kinds of gym memberships.
      - Shows every product in the store
      - Searches products by name (bonus) -->
 
--
--
--
+- Abstract Membership class that creates a membership and calculates its cost, has 3 child classes.
+- BasicMembership class inherits from Membership with unique field offPeakOnly 
+- PremiumMembership class inherits from Membership with unique field guestPasses
+- FamilyMembership class inherits from Membership with unique field extraMembers
+- Displays memberships and costs
 
-## User Stories
-
-<!-- The stories you worked from, one per bullet, in the format you learned in Workbook 3b:
-     As a [type of user], I want [some goal] so that [some reason].
-     Same text as the cards on your GitHub project board. -->
-
-- As a ..., I want ..., so that ...
-- As a ..., I want ..., so that ...
 
 ## Setup
 
@@ -58,19 +53,9 @@ kinds of gym memberships.
 1. Clone this repository, or download it as a zip and unzip it.
 2. In IntelliJ: File > Open, pick the project folder (the one that holds `pom.xml`), press Open.
 3. Wait for IntelliJ to finish indexing (progress bar at the bottom).
-4. Open `src/main/java/com/pluralsight/YourMainClassName.java`. <!-- replace YourMainClassName with the class that has main -->
-5. Right-click inside the file and choose Run 'YourMainClassName.main()'.
+4. Open `src/main/java/com/pluralsight/Main.java`. <!-- replace YourMainClassName with the class that has main -->
+5. Right-click inside the file and choose Run 'Main.main()'.
 
-### Data and configuration
-
-<!-- OPTIONAL. Anything the program needs that is not code: data files and where they must sit, files the
-     program creates, a database script to run first, a settings file to edit (connection, port).
-     If there is nothing, delete this subsection, heading included.
-     Example:
-     - `inventory.csv` sits at the project root, next to `pom.xml`. The program reads it at start.
-     - `logs.txt` is created by the program at the project root on the first run. -->
-
--
 
 ## Technologies Used
 
@@ -95,7 +80,7 @@ kinds of gym memberships.
 
 ![Main menu](images/menu.png)
 
-![One feature in action](images/feature.png)
+![One feature in action](images/output.png)
 
 ## A piece of code I am proud of
 
@@ -104,31 +89,43 @@ kinds of gym memberships.
      demo day and what you talk about in an interview. -->
 
 ```java
-
+for (Membership membership : memberships) {
+            if (membership instanceof BasicMembership && ((BasicMembership) membership).isOffPeakOnly()){
+                System.out.println(membership.getMemberName() + ": entry between 10:00 and 16:00 only");
+            }
+            if (membership instanceof PremiumMembership){
+                ((PremiumMembership) membership).useGuestPass();
+            }
+            if (membership instanceof FamilyMembership){
+                System.out.println(membership.getMemberName() + ": print " +
+                        (((FamilyMembership) membership).getExtraMembers() + 1) +
+                        " key cards");
+            }
+        }
 ```
+This loop prints lines containing unique information based on the type of membership.
 
 ## Future Work
 
 <!-- What you would add or fix next, one bullet each. Unfinished bonuses belong here. -->
 
--
--
+- CorporateMembership class
+- Print largest contract
 
 ## Resources
 
 <!-- What helped you: the workbook, the week's hub pages, a tutorial, a documentation page. Real links. -->
 
 - Java YearUp Fall 2026 hub: <https://raymaroun.github.io/yearup-java-fall2026/>
--
 
 ## Author
 
 <!-- Your name and, if you like, your GitHub profile link. For a team workshop, one line per person with what each one built. -->
 
-- **Your Name**
+- **Daniel Daube**
 
 ## Thanks
 
 <!-- Optional. The people who helped: the instructor, a classmate who debugged with you, a mentor. -->
 
-- Thank you to ... for ...
+- Thank you to Raymond for being a great instructor
