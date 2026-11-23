@@ -38,6 +38,7 @@ A parent Membership class and three child classes that calculate the cost of dif
 - BasicMembership class inherits from Membership with unique field offPeakOnly 
 - PremiumMembership class inherits from Membership with unique field guestPasses
 - FamilyMembership class inherits from Membership with unique field extraMembers
+- CorporateMembership class inherits from Membership with unique field employerShare (bonus)
 - Displays memberships and costs
 
 
@@ -109,7 +110,7 @@ This loop prints lines containing unique information based on the type of member
 
 <!-- What you would add or fix next, one bullet each. Unfinished bonuses belong here. -->
 
-- CorporateMembership class
+
 - Print largest contract
 
 ## Resources
