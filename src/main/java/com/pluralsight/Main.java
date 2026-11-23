@@ -26,19 +26,24 @@ public class Main {
         memberships.add(emmaWilson);
         memberships.add(oliviaMartin);
 
-        BigDecimal monthlyIncome =BigDecimal.ZERO;
+        BigDecimal monthlyIncome = BigDecimal.ZERO;
         BigDecimal allContracts = BigDecimal.ZERO;
+        Membership largestContract = memberships.get(0);
         for (Membership membership : memberships) {
             System.out.println(membership);
             printCosts(membership);
             monthlyIncome = monthlyIncome.add(membership.getMonthlyPrice());
             allContracts = allContracts.add(membership.getContractTotal());
+            if (membership.getContractTotal().compareTo(largestContract.getContractTotal()) > 0){
+                largestContract = membership;
+            }
         }
 
         System.out.println("--- Totals ---");
         System.out.println("Memberships: " + memberships.size());
         System.out.println("Monthly income: $" + monthlyIncome);
         System.out.println("All contracts: $" + allContracts);
+        System.out.println("Largest contract: " + largestContract.getMemberName() + ", $" + largestContract.getContractTotal());
 
         System.out.println("--- Front Desk Notes ---");
         for (Membership membership : memberships) {
