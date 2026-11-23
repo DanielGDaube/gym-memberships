@@ -1,6 +1,7 @@
 package com.pluralsight;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class CorporateMembership extends Membership{
 
@@ -20,7 +21,7 @@ public class CorporateMembership extends Membership{
 
     @Override
     public BigDecimal getMonthlyPrice(){
-        return getBaseRate().subtract(employerShare.multiply(getBaseRate()));
+        return getBaseRate().subtract(employerShare.multiply(getBaseRate())).setScale(2, RoundingMode.HALF_UP);
     }
 
     @Override
